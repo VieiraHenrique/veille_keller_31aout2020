@@ -1,0 +1,185 @@
+/**** FONT IMPORT *****/
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;600&display=swap');
+
+/***** VARIABLES ********/
+
+:root {
+    --font-one: 'Baloo Tamma 2', sans-serif;
+    --color-primary: rgb(49, 96, 199);
+    --color-primary-light: rgb(92, 137, 233);
+    --color-primary-dark: rgb(34, 68, 143);
+    --color-secondary: rgb(255, 210, 7);
+    --color-secondary-light: rgb(255, 229, 112);
+    --color-secondary-dark: rgb(202, 148, 0);
+    --white: #fff;
+    --black: #232323;
+    --grey-dark: rgb(88, 88, 88);
+    --grey-light: rgb(235, 235, 235);
+    
+}
+
+/***** BASIC RESET *******/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /* Establish 1rem = 10px */
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: sans-serif; /* INSERT FONT */
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 110rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/****************************/
+
+.nav {
+    background: var(--black);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+.nav__logo span {
+    color: var(--color-secondary);
+}
+
+.nav .container {
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#toggle {
+    display: none;
+}
+
+.nav__menu ul {
+    background: var(--grey-light);
+    color: var(--black);
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: -60vw;
+    height: 100vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    transition: right .5s ease;
+}
+
+.nav__menu a {
+    color: var(--black);
+    text-transform: uppercase;
+} 
+
+.nav__menu label {
+    position: relative;
+    display: block;
+    z-index: 100;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    background: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav__menu label span,
+.nav__menu label span::before,
+.nav__menu label span::after {
+    position: relative;
+    width: 3.2rem;
+    height: .4rem;
+    background: var(--black);
+    border-radius: 10rem;
+    display: block;
+    transition: all .5s ease;
+}
+
+.nav__menu label span::before,
+.nav__menu label span::after {
+    position: absolute;
+    content: '';
+}
+
+.nav__menu label span::before {
+    bottom: .8rem;
+}
+.nav__menu label span::after {
+    top: .8rem;
+}
+
+/***** TOGGLE *****/
+
+#toggle:checked ~ ul {
+    right: 0;
+}
+
+#toggle:checked ~ label span::after {
+    display: none;
+}
+#toggle:checked ~ label span::before {
+    bottom: 0;
+    transform: rotate(90deg);
+}
+#toggle:checked ~ label span {
+    transform: rotate(45deg);
+}
+
+
+
+@media (min-width: 70rem) {
+    .nav__menu ul {
+        all: unset;
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
+    
+    .nav__menu a {
+        color: var(--white);
+    }
+    
+    .nav__menu a:hover {
+        border-bottom: 2px solid var(--color-secondary);
+    }
+
+    .nav__menu label {
+        display: none;
+    }
+}
+
+
+
